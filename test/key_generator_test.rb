@@ -22,7 +22,6 @@ class KeyGeneratorTest < Minitest::Test
     assert_equal "01234", kg.key
   end
 
-
 end
 
 
