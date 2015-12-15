@@ -30,9 +30,10 @@ class Encryptor
 
   def encrypt(message)
     # 39
-    breakdown = message.chars
+    breakdown = message.downcase.chars
 
     encrypted = breakdown.map do |letter|
+      # binding.pry
      if breakdown.index(letter) % 4 == 0 || breakdown.index(letter) == 0
        @characters[((@characters.index(letter) + @a_offset) % 39)]
      elsif breakdown.index(letter) % 4 == 1 || breakdown.index(letter) == 1

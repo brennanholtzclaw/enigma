@@ -1,3 +1,4 @@
+require './test/test_helper'
 require 'date'
 require 'minitest/autorun'
 require 'minitest/pride'
@@ -134,5 +135,10 @@ class DecryptorTest < Minitest::Test
     refute_equal "s", d.decrypt("a")
   end
 
-  def test_it_decrypts
+  def test_it_decrypts_a_long_phrase
+    d = Decryptor.new("message", 54321, 160886)
+
+    refute_equal " ", d.decrypt(",ukgqkgqtqnc6tqdu4tgxq,ut,qaktu,q6c,qx64q4ktu,")
+  end
+
 end
