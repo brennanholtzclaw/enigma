@@ -64,20 +64,43 @@ class EncryptorTest < Minitest::Test
     assert_equal "s0", e.encrypt("ab")
   end
 
-end
+  def test_encrypts_four_letters
+    e = Encryptor.new("message", 12345, 131215)
 
-a = "this is a message"
+    assert_equal "s0,o", e.encrypt("abcd")
+  end
 
-b = a.chars
+  def test_encrypts_a_crazy_alphabet_test
+    e = Encryptor.new("message", 12345, 131215)
 
-a_array = []
-b_array = []
-c_array = []
-d_array = []
+    assert_equal "s0,ow4ds08hw4,l08dp4,ht8dl7jr", e.encrypt("abcdefghijklmnopqrstuvwxyz .,")
+  end
 
-b.each do |w, x, y, z|
-  a_array << w
-  b_array << x
-  c_array << y
-  d_array << z
+  def test_encryption_should_be_the_same_every_four_letters
+    e = Encryptor.new("message", 12345, 131215)
+
+    assert_equal "s0,os0,os0,os0,o", e.encrypt("abcdabcdabcdabcd")
+  end
+
+  def test_encrypt_will_return_a_space
+    e = Encryptor.new("message", 12345, 131215)
+
+    assert_equal " ", e.encrypt("s")
+    refute_equal " ", e.encrypt("a")
+  end
+
+  def test_a_different_key_returns_different_encryption
+    e = Encryptor.new("message", 54321, 131215)
+
+    refute_equal " ", e.encrypt("s")
+    refute_equal "s", e.encrypt("a")
+  end
+
+  def test_a_different_date_returns_different_encryption
+    e = Encryptor.new("message", 54321, 160886)
+
+    refute_equal " ", e.encrypt("s")
+    refute_equal "s", e.encrypt("a")
+  end
+
 end

@@ -14,7 +14,8 @@ class Enigma
     Encryptor.new(message, key, date)
   end
 
-  def decrypt
+  def decrypt(message, key = nil, date = nil)
+    Decryptor.new(message, key = nil, date = nil)
   end
 
   def crack

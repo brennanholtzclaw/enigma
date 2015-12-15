@@ -32,42 +32,38 @@ class Encryptor
     # 39
     breakdown = message.chars
 
-    a_letters = []
-    b_letters = []
-    c_letters = []
-    d_letters = []
-
-    breakdown.each do |letter|
+    encrypted = breakdown.map do |letter|
      if breakdown.index(letter) % 4 == 0 || breakdown.index(letter) == 0
-       a_letters << letter
+       @characters[((@characters.index(letter) + @a_offset) % 39)]
      elsif breakdown.index(letter) % 4 == 1 || breakdown.index(letter) == 1
-       b_letters << letter
+       @characters[((@characters.index(letter) + @b_offset) % 39)]
      elsif breakdown.index(letter) % 4 == 2 || breakdown.index(letter) == 2
-       c_letters << letter
+       @characters[((@characters.index(letter) + @c_offset) % 39)]
      elsif breakdown.index(letter) % 4 == 3 || breakdown.index(letter) == 3
-       d_letters << i
+       @characters[((@characters.index(letter) + @d_offset) % 39)]
      end
-    #  binding.pry
    end
-
-    a_rotate(a_letters).join if !a_letters.empty?
-    b_rotate(b_letters) if !b_letters.empty?
-    c_rotate(c_letters) if !c_letters.empty?
-    d_rotate(d_letters) if !d_letters.empty?
+   encrypted.join
 
   end
 
-  def a_rotate(input)
-    a_encrypted = input.map do |char|
-      i = @characters.index(char)
-      @characters[(i + @a_offset)]
-    end
-    binding.pry
-    a_encrypted
-  end
+  # def a_rotate(input)
+  #   a_encrypted = input.map do |char|
+  #     i = @characters.index(char)
+  #     @characters[(i + @a_offset)]
+  #   end
+  #   binding.pry
+  #   a_encrypted
+  # end
 
-  def rotate
+  # def rotate
 
+
+# @characters[((@characters.index(letter) + @a_offset) % 39)]
+#
+# @characters[0]
+# @characters[0 + 13]
+# @characters[(0 - 13) % 39]
 
     # message_indexes = message.chars.map do |char|
     #   @characters.index(char)
@@ -90,10 +86,10 @@ end
 #
 # You could iterate through the message array, constantly checking the index value of
 
-
-"IN THE ENCRYPT METHOD ABOVE!
-take the breakdown and add the encryption into the 'each do' block...
-ie: if breakdown.index(letter) % 4 == 0 || breakdown.index(letter) == 0
-      @characters[(@characters.index(letter) + @a_offset)]
-
-that should end you up with an array of the encrypted letters? maybe?"
+#
+# "IN THE ENCRYPT METHOD ABOVE!
+# take the breakdown and add the encryption into the 'each do' block...
+# ie: if breakdown.index(letter) % 4 == 0 || breakdown.index(letter) == 0
+#       @characters[(@characters.index(letter) + @a_offset)]
+#
+# that should end you up with an array of the encrypted letters? maybe?"
