@@ -28,7 +28,7 @@ class CrackTest < Minitest::Test
     assert_equal 13, @c.d_crack_offset
   end
 
-  def test_it_cracks
+  def test_it_cracks_i_guess
     assert_equal "message ..end..", @c.crack_decrypt
   end
 

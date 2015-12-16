@@ -8,3 +8,4 @@ class CharMap
   end
 
 end
+# 18, 18, -21, 13
