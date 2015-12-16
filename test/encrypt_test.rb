@@ -112,4 +112,12 @@ class EncryptorTest < Minitest::Test
     assert_equal expected, e.encrypt("This is a long phrase that might not end right")
   end
 
+  def test_preparing_code_for_crack
+    # skip
+    e = Encryptor.new("message ..end..", 54321, 131215)
+
+    expected = "7knnvmkxttkaytt"
+    assert_equal expected, e.encrypt("message ..end..")
+  end
+
 end
