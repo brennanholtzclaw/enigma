@@ -17,7 +17,6 @@ class Decryptor
     @b_offset = @offsets.b_final_off
     @c_offset = @offsets.c_final_off
     @d_offset = @offsets.d_final_off
-    # @message = encrypt(message)
   end
 
   def date_format(date)
@@ -30,7 +29,7 @@ class Decryptor
 
   def decrypt(message)
     # 39
-    breakdown = message.chars
+    breakdown = message.downcase.chars
 
     decrypted = breakdown.map do |letter|
      if breakdown.index(letter) % 4 == 0 || breakdown.index(letter) == 0
@@ -44,7 +43,6 @@ class Decryptor
      end
    end
    decrypted.join
-
   end
 
 end

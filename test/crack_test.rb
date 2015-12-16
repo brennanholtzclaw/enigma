@@ -1,8 +1,8 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/enigma'
+require './lib/crack'
 
-class EnigmaTest < Minitest::Test
+class CrackTest < Minitest::Test
 
 
 end

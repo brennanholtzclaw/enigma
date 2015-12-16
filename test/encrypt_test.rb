@@ -1,3 +1,4 @@
+require './test/test_helper'
 require 'date'
 require 'minitest/autorun'
 require 'minitest/pride'
@@ -104,6 +105,7 @@ class EncryptorTest < Minitest::Test
   end
 
   def test_it_encrypts_a_long_phrase
+    skip
     e = Encryptor.new("message", 54321, 160886)
 
     expected = "This is a long phrase that might not end right"
