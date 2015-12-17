@@ -2,16 +2,12 @@ require 'pry'
 require './lib/key_generator'
 
 class OffsetCalculator
-  attr_reader :key, :date, :squared, :a_final_off, :b_final_off, :c_final_off, :d_final_off
+  attr_reader :key, :date, :squared
 
   def initialize(key, date)
     @key = key
     @date = date_format(date)
     @squared = @date.to_i ** 2
-    @a_final_off = a_final_off
-    @b_final_off = b_final_off
-    @c_final_off = c_final_off
-    @d_final_off = d_final_off
   end
 
   def date_format(date)
