@@ -55,6 +55,8 @@ end
 #
 # new_message = d.decrypt(message_in)
 #
-#
 # File.write(file_to_write, new_message)
 # puts "Created #{file_to_write} with key of #{key} and date #{date}"
+# 
+# ruby ./lib/decrypt.rb encrypted.txt decrypted.txt 82648 030415
+# Created 'decrypted.txt' with the key 82648 and date 030415

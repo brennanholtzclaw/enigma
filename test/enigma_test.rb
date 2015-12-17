@@ -13,7 +13,7 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_decrypts_integratively
-    assert_equal "message..end..", Enigma.new("43p3s5bjq3koqx", 12345, 131215).decrypt
+    assert_equal "meseage..end..", Enigma.new("43p3s5bjq3koqx", 12345, 131215).decrypt
   end
 
   def test_it_cracks_integratively

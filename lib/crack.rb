@@ -83,5 +83,6 @@ end
 # File.write(file_to_write, new_message)
 # puts "Created #{file_to_write} with key of ____ and date #{date}"
 # end
-# $ ruby ./lib/crack.rb encrypted.txt cracked.txt 030415
+
+# ruby ./lib/crack.rb encrypted.txt cracked.txt 030415
 # Created 'cracked.txt' with the cracked key 82648 and date 030415

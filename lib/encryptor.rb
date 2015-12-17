@@ -60,3 +60,6 @@ end
 #
 # File.write(file_to_write, new_message)
 # puts "Created #{file_to_write} with key of #{rand_key} and date #{date}"
+# 
+# ruby ./lib/encryptor.rb message.txt encrypted.txt
+# Created 'encrypted.txt' with the key 82648 and date 030415
