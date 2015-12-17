@@ -113,11 +113,17 @@ class EncryptorTest < Minitest::Test
   end
 
   def test_preparing_code_for_crack
-    # skip
     e = Encryptor.new("message ..end..", 54321, 131215)
 
-    expected = "7knnvmkxttkaytt"
+    expected = "7knfvm,xte,aye6"
     assert_equal expected, e.encrypt("message ..end..")
+  end
+
+  def test_it_encrypts_from_spec
+    e = Encryptor.new("message ..end..", 12345, 131215)
+    my_message = "message..end.."
+
+    assert_equal "43p3s5bjq3koqx", e.encrypt(my_message)
   end
 
 end

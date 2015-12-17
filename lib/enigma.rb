@@ -1,18 +1,27 @@
 require 'pry'
+require './lib/encryptor'
+require './lib/decryptor'
+require './lib/crack'
 require './lib/key_generator'
 
 class Enigma
 
-  def encrypt(message, key = nil, date = nil)
-    Encryptor.new(message, key, date)
+  def initialize(message, key = nil, date)
+    @message = message
+    @key = key
+    @date = date
   end
 
-  def decrypt(message, key = nil, date = nil)
-    Decryptor.new(message, key = nil, date = nil)
+  def encrypt
+    Encryptor.new(@message, @key, @date).encrypt(@message)
+  end
+
+  def decrypt
+    Decryptor.new(@message, @key, @date).decrypt(@message)
   end
 
   def crack
-    Crack.new(message, date)
+    Crack.new(@message, @date).crack_decrypt
   end
 
 end
