@@ -28,7 +28,6 @@ class Decryptor
   end
 
   def decrypt(message)
-    # 39
     breakdown = message.downcase.chars
 
     decrypted = breakdown.map do |letter|
@@ -46,16 +45,16 @@ class Decryptor
   end
 
 end
-
-file_to_read = ARGV[0]
-file_to_write = ARGV[1]
-message_in = File.read(file_to_read).chomp
-key = ARGV[2]
-date = ARGV[3]
-d = Decryptor.new(message_in, key, date)
-
-new_message = d.decrypt(message_in)
-
-
-File.write(file_to_write, new_message)
-puts "Created #{file_to_write} with key of #{key} and date #{date}"
+#
+# file_to_read = ARGV[0]
+# file_to_write = ARGV[1]
+# message_in = File.read(file_to_read).chomp
+# key = ARGV[2]
+# date = ARGV[3]
+# d = Decryptor.new(message_in, key, date)
+#
+# new_message = d.decrypt(message_in)
+#
+#
+# File.write(file_to_write, new_message)
+# puts "Created #{file_to_write} with key of #{key} and date #{date}"

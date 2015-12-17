@@ -28,12 +28,10 @@ class Encryptor
   end
 
   def encrypt(message)
-    # 39
     breakdown = message.downcase.chars
     counter = -1
     encrypted = breakdown.map do |letter|
       counter += 1
-      # binding.pry
      if counter % 4 == 0 || counter == 0
        @characters[((@characters.index(letter) + @a_offset) % 39)]
      elsif counter % 4 == 1 || counter == 1
@@ -48,17 +46,17 @@ class Encryptor
   end
 
 end
-
-file_to_read = ARGV[0]
-file_to_write = ARGV[1]
-
-message_in = File.read(file_to_read).chomp
-
-e = Encryptor.new(message_in)
-rand_key = e.key.key
-date = e.date
-new_message = e.encrypt(message_in)
-
-
-File.write(file_to_write, new_message)
-puts "Created #{file_to_write} with key of #{rand_key} and date #{date}"
+#
+# file_to_read = ARGV[0]
+# file_to_write = ARGV[1]
+#
+# message_in = File.read(file_to_read).chomp
+#
+# e = Encryptor.new(message_in)
+# rand_key = e.key.key
+# date = e.date
+# new_message = e.encrypt(message_in)
+#
+#
+# File.write(file_to_write, new_message)
+# puts "Created #{file_to_write} with key of #{rand_key} and date #{date}"

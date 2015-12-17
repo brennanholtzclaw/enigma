@@ -11,10 +11,7 @@ class Crack
     @date = date.to_i
     @characters = CharMap.new.characters
     @offsets = OffsetCalculator.new(0, date)
-    # @a_offset = @offsets.a_offset(@offsets.squared)
-    # @b_offset = @offsets.b_offset(@offsets.squared)
-    # @c_offset = @offsets.c_offset(@offsets.squared)
-    # @d_offset = @offsets.d_offset(@offsets.squared)
+    @key = nil
   end
 
   def find_last_four_chars
@@ -59,7 +56,6 @@ class Crack
     counter = -1
     decrypted = breakdown.map do |letter|
       counter += 1
-      # binding.pry
      if counter % 4 == 0 || counter == 0
        @characters[((@characters.index(letter) + (a_crack_rotation + a_date_offset)) % 39)]
      elsif counter % 4 == 1 || counter == 1
@@ -75,17 +71,17 @@ class Crack
 
 end
 
-if __FILE__ == $0
-file_to_read = ARGV[0]
-file_to_write = ARGV[1]
-message_in = File.read(file_to_read).chomp
-date = ARGV[2]
-c = Crack.new(message_in, date)
-
-new_message = c.crack_decrypt
-
-File.write(file_to_write, new_message)
-puts "Created #{file_to_write} with key of ____ and date #{date}"
-end
+# if __FILE__ == $0
+# file_to_read = ARGV[0]
+# file_to_write = ARGV[1]
+# message_in = File.read(file_to_read).chomp
+# date = ARGV[2]
+# c = Crack.new(message_in, date)
+#
+# new_message = c.crack_decrypt
+#
+# File.write(file_to_write, new_message)
+# puts "Created #{file_to_write} with key of ____ and date #{date}"
+# end
 # $ ruby ./lib/crack.rb encrypted.txt cracked.txt 030415
 # Created 'cracked.txt' with the cracked key 82648 and date 030415
